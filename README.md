@@ -1,5 +1,5 @@
 #Timelined
-
+----------
 Timelined is a customizable CSS-only vertical timeline.
 
 ## Quick start
@@ -36,6 +36,8 @@ Some additional customization is available by adding additional classes to the m
 
 Schemes are a quick way to change the color of the line, icon on the timeline and  border of the block. The names are self-explanitory: `gray-red`, `gray-blue`, `blue-yellow`, `purple-flirt`.
 Adding the scheme name as a class on the main container will do the job.
+
+## Demo - http://timelined.andriaus.lt/
 
 ## License
 The MIT License (MIT)
