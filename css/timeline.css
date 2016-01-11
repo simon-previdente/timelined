@@ -5,13 +5,13 @@
   box-sizing: border-box; }
 
 /* Main logic */
-#timeline {
+.timeline {
   font-size: 1em;
   width: 100%;
   margin: 20px auto; }
-  #timeline .timeline-block {
+  .timeline .timeline-block {
     margin-bottom: 40px; }
-  #timeline .timeline-icon {
+  .timeline .timeline-icon {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -20,20 +20,20 @@
     border: 2px solid #FF6961;
     border-radius: 100%;
     background-color: white; }
-  #timeline .timeline-content {
+  .timeline .timeline-content {
     position: relative;
     width: 45%;
     padding: 12px;
     border: 1px solid #CFCFC4;
     line-height: 20px; }
-  #timeline .timeline-date {
+  .timeline .timeline-date {
     position: absolute;
     width: auto;
     top: 0;
     left: 118%;
     font-size: 80%; }
 
-#timeline::before {
+.timeline::before {
   position: absolute;
   width: 1px;
   height: 100%;
@@ -44,50 +44,50 @@
   background-color: #CFCFC4;
   content: ""; }
 
-#timeline.rounded .timeline-content {
+.timeline.rounded .timeline-content {
   border-radius: 4px; }
 
 @media screen and (min-width: 800px) {
-  #timeline.timeline-alternating:not(.timeline-left) .timeline-block:nth-of-type(2n) .timeline-content {
+  .timeline.timeline-alternating:not(.timeline-left) .timeline-block:nth-of-type(2n) .timeline-content {
     left: 55%; }
-  #timeline.timeline-alternating:not(.timeline-left) .timeline-block:nth-of-type(2n) .timeline-date {
+  .timeline.timeline-alternating:not(.timeline-left) .timeline-block:nth-of-type(2n) .timeline-date {
     left: auto;
     right: 118%;
     margin-left: -400px; } }
 
 @media screen and (max-width: 800px) {
-  #timeline.timeline-collapsing::before {
+  .timeline.timeline-collapsing::before {
     left: auto;
     margin-left: 140px; }
-  #timeline.timeline-collapsing .timeline-block {
+  .timeline.timeline-collapsing .timeline-block {
     margin-left: 160px; }
-  #timeline.timeline-collapsing .timeline-icon {
+  .timeline.timeline-collapsing .timeline-icon {
     left: auto;
     margin-left: -29px; }
-  #timeline.timeline-collapsing .timeline-content {
+  .timeline.timeline-collapsing .timeline-content {
     width: auto; }
-  #timeline.timeline-collapsing .timeline-date {
+  .timeline.timeline-collapsing .timeline-date {
     width: auto;
     left: 0;
     margin-left: -120px;
     text-align: right; } }
 
 /* Left based logic */
-#timeline.timeline-left::before {
+.timeline.timeline-left::before {
   left: auto;
   margin-left: 140px; }
 
-#timeline.timeline-left .timeline-block {
+.timeline.timeline-left .timeline-block {
   margin-left: 160px; }
 
-#timeline.timeline-left .timeline-icon {
+.timeline.timeline-left .timeline-icon {
   left: auto;
   margin-left: -29px; }
 
-#timeline.timeline-left .timeline-content {
+.timeline.timeline-left .timeline-content {
   width: auto; }
 
-#timeline.timeline-left .timeline-date {
+.timeline.timeline-left .timeline-date {
   width: auto;
   left: 0;
   margin-left: -120px;
@@ -95,38 +95,38 @@
 
 /* Color schemes */
 /* Schemes */
-#timeline.gray-red::before {
+.timeline.gray-red::before {
   background-color: #CFCFC4; }
 
-#timeline.gray-red .timeline-icon {
+.timeline.gray-red .timeline-icon {
   border-color: #C23B22; }
 
-#timeline.gray-red .timeline-content {
+.timeline.gray-red .timeline-content {
   border-color: #CFCFC4; }
 
-#timeline.gray-blue::before {
+.timeline.gray-blue::before {
   background-color: #CFCFC4; }
 
-#timeline.gray-blue .timeline-icon {
+.timeline.gray-blue .timeline-icon {
   border-color: #779ECB; }
 
-#timeline.gray-blue .timeline-content {
+.timeline.gray-blue .timeline-content {
   border-color: #CFCFC4; }
 
-#timeline.blue-yellow::before {
+.timeline.blue-yellow::before {
   background-color: #AEC6CF; }
 
-#timeline.blue-yellow .timeline-icon {
+.timeline.blue-yellow .timeline-icon {
   border-color: #FFB347; }
 
-#timeline.blue-yellow .timeline-content {
+.timeline.blue-yellow .timeline-content {
   border-color: #AEC6CF; }
 
-#timeline.purple-flirt::before {
+.timeline.purple-flirt::before {
   background-color: #B19CD9; }
 
-#timeline.purple-flirt .timeline-icon {
+.timeline.purple-flirt .timeline-icon {
   border-color: #A2006D; }
 
-#timeline.purple-flirt .timeline-content {
+.timeline.purple-flirt .timeline-content {
   border-color: #B19CD9; }

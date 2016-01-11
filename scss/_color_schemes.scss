@@ -8,13 +8,13 @@ $schemes: (
 );
 
 @each $scheme, $map in $schemes {
-  #timeline.#{$scheme}::before {
+  .timeline.#{$scheme}::before {
     background-color: map-get($map,secondary-color);
   }
-  #timeline.#{$scheme} .timeline-icon {
+  .timeline.#{$scheme} .timeline-icon {
     border-color:map-get($map,primary-color);
   }
-  #timeline.#{$scheme} .timeline-content {
+  .timeline.#{$scheme} .timeline-content {
     border-color:map-get($map,secondary-color);
   }
 }

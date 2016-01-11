@@ -35,7 +35,7 @@ $width-small: 800px;
 }
 
 /* Main logic */
-#timeline {
+.timeline {
 	font-size:$font-size;
 	width:100%;
 	margin:20px auto;
@@ -68,7 +68,7 @@ $width-small: 800px;
 		font-size:80%;
 	}
 }
-#timeline::before {
+.timeline::before {
 	position:absolute;
 	width:$timeline-width;
 	height:100%;
@@ -79,12 +79,12 @@ $width-small: 800px;
 	content:"";
 }
 
-#timeline.rounded .timeline-content {
+.timeline.rounded .timeline-content {
 	border-radius:$box-round;
 }
 
 @media screen and (min-width:$width-small) {
-	#timeline.timeline-alternating:not(.timeline-left) {
+	.timeline.timeline-alternating:not(.timeline-left) {
 		.timeline-block:nth-of-type(2n) {
 			.timeline-content {
 				left:55%;
@@ -98,11 +98,11 @@ $width-small: 800px;
 	}
 }
 @media screen and (max-width:$width-small) {
-	#timeline.timeline-collapsing::before {
+	.timeline.timeline-collapsing::before {
 		left:auto;
 		margin-left:140px;
 	}
-	#timeline.timeline-collapsing {
+	.timeline.timeline-collapsing {
 		@include collapsed();
 	}
 }
@@ -111,11 +111,11 @@ $width-small: 800px;
 
 
 /* Left based logic */
-#timeline.timeline-left::before {
+.timeline.timeline-left::before {
   left:auto;
   margin-left:140px;
 }
-#timeline.timeline-left {
+.timeline.timeline-left {
 	@include collapsed();
 }
 
