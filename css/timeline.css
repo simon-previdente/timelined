@@ -1,16 +1,17 @@
-* {
-  font-family: "Open sans", sans-serif; }
-
 *, *::after, *::before {
   box-sizing: border-box; }
 
 /* Main logic */
 .timeline {
+  position: relative;
   font-size: 1em;
   width: 100%;
-  margin: 20px auto; }
+  height: 100%;
+  margin: 0 auto;
+  overflow-y: hidden;
+  margin-top: 0; }
   .timeline .timeline-block {
-    margin-bottom: 40px; }
+    margin: 40px 0; }
   .timeline .timeline-icon {
     position: absolute;
     width: 20px;
@@ -35,11 +36,11 @@
 
 .timeline::before {
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 100%;
   top: 0;
   left: 50%;
-  margin-left: -0.5px;
+  margin-left: -1px;
   /* Half of width */
   background-color: #CFCFC4;
   content: ""; }
@@ -60,7 +61,8 @@
     left: auto;
     margin-left: 140px; }
   .timeline.timeline-collapsing .timeline-block {
-    margin-left: 160px; }
+    margin-left: 160px;
+    margin-right: 10px; }
   .timeline.timeline-collapsing .timeline-icon {
     left: auto;
     margin-left: -29px; }
@@ -78,7 +80,8 @@
   margin-left: 140px; }
 
 .timeline.timeline-left .timeline-block {
-  margin-left: 160px; }
+  margin-left: 160px;
+  margin-right: 10px; }
 
 .timeline.timeline-left .timeline-icon {
   left: auto;

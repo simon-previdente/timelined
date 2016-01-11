@@ -1,8 +1,7 @@
-$font-main: 'Open sans';
 $font-size: 1em;
 $primary-color: #FF6961;
 $secondary-color: #CFCFC4;
-$timeline-width: 1px;
+$timeline-width: 2px;
 $icon-size: 20px;
 $box-round: 4px;
 $block-spacing: 40px;
@@ -11,6 +10,7 @@ $width-small: 800px;
 @mixin collapsed() {
 		.timeline-block {
 			margin-left:160px;
+			margin-right:10px;
 		}
 		.timeline-icon {
 			left:auto;
@@ -27,21 +27,22 @@ $width-small: 800px;
 		}
 }
 
-* {
-	font-family: $font-main, sans-serif;
-}
 *, *::after, *::before {
 	box-sizing: border-box;
 }
 
 /* Main logic */
 .timeline {
+	position:relative;
 	font-size:$font-size;
 	width:100%;
-	margin:20px auto;
+  	height:100%;
+	margin:0 auto;
+	overflow-y:hidden;
+	margin-top:0;
 
 	.timeline-block {
-		margin-bottom:$block-spacing;
+		margin: $block-spacing 0;
 	}
 	.timeline-icon {
 		position:absolute;
