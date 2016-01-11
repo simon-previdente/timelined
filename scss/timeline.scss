@@ -1,0 +1,123 @@
+$font-main: 'Open sans';
+$font-size: 1em;
+$primary-color: #FF6961;
+$secondary-color: #CFCFC4;
+$timeline-width: 1px;
+$icon-size: 20px;
+$box-round: 4px;
+$block-spacing: 40px;
+$width-small: 800px;
+
+@mixin collapsed() {
+		.timeline-block {
+			margin-left:160px;
+		}
+		.timeline-icon {
+			left:auto;
+			margin-left:-29px;
+		}
+		.timeline-content {
+			width:auto;
+		}
+		.timeline-date {
+			width:auto;
+			left:0;
+			margin-left:-120px;
+			text-align: right;
+		}
+}
+
+* {
+	font-family: $font-main, sans-serif;
+}
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+/* Main logic */
+#timeline {
+	font-size:$font-size;
+	width:100%;
+	margin:20px auto;
+
+	.timeline-block {
+		margin-bottom:$block-spacing;
+	}
+	.timeline-icon {
+		position:absolute;
+		width:$icon-size;
+		height:$icon-size;
+		left:50%;
+		margin-left:-$icon-size/2;
+		border:2px solid $primary-color;
+		border-radius:100%;
+		background-color: white;
+	}
+	.timeline-content {
+		position:relative;
+		width:45%;
+		padding:12px;
+		border:1px solid $secondary-color;
+		line-height: 20px;
+	}
+	.timeline-date {
+		position: absolute;
+		width:auto;
+		top:0;
+		left:118%;
+		font-size:80%;
+	}
+}
+#timeline::before {
+	position:absolute;
+	width:$timeline-width;
+	height:100%;
+	top:0;
+	left:50%;
+	margin-left:-$timeline-width/2; /* Half of width */
+	background-color:$secondary-color;
+	content:"";
+}
+
+#timeline.rounded .timeline-content {
+	border-radius:$box-round;
+}
+
+@media screen and (min-width:$width-small) {
+	#timeline.timeline-alternating:not(.timeline-left) {
+		.timeline-block:nth-of-type(2n) {
+			.timeline-content {
+				left:55%;
+			}
+			.timeline-date {
+				left:auto;
+				right:118%;
+				margin-left:-400px;
+			}
+		}
+	}
+}
+@media screen and (max-width:$width-small) {
+	#timeline.timeline-collapsing::before {
+		left:auto;
+		margin-left:140px;
+	}
+	#timeline.timeline-collapsing {
+		@include collapsed();
+	}
+}
+
+
+
+
+/* Left based logic */
+#timeline.timeline-left::before {
+  left:auto;
+  margin-left:140px;
+}
+#timeline.timeline-left {
+	@include collapsed();
+}
+
+/* Color schemes */
+@import 'color_schemes';

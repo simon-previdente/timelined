@@ -1,0 +1,20 @@
+/* Schemes */
+
+$schemes: (
+  gray-red: (primary-color:#C23B22,secondary-color:#CFCFC4),
+  gray-blue: (primary-color:#779ECB,secondary-color:#CFCFC4),
+  blue-yellow:(primary-color:#FFB347,secondary-color:#AEC6CF),
+  purple-flirt:(primary-color:#A2006D,secondary-color:#B19CD9),
+);
+
+@each $scheme, $map in $schemes {
+  #timeline.#{$scheme}::before {
+    background-color: map-get($map,secondary-color);
+  }
+  #timeline.#{$scheme} .timeline-icon {
+    border-color:map-get($map,primary-color);
+  }
+  #timeline.#{$scheme} .timeline-content {
+    border-color:map-get($map,secondary-color);
+  }
+}

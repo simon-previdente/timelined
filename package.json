@@ -1,0 +1,14 @@
+{
+  "name": "Timelined",
+  "version": "0.1.1",
+  "description": "A customizable CSS-only vertical timeline",
+  "dependencies": {
+    "node-sass": "^3.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "watch-css": "node-sass -w scss/  -o css/"
+  },
+  "author": "Andrius Sevcenko",
+  "license": "MIT"
+}

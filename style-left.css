@@ -1,0 +1,20 @@
+#timeline.timeline-left::before {
+  left:auto;
+  margin-left:100px;
+}
+#timeline.timeline-left .timeline-block {
+  margin-left:120px;
+}
+#timeline.timeline-left .timeline-icon {
+  left:auto;
+  margin-left:-29px;
+}
+#timeline.timeline-left .timeline-content {
+  width:auto;
+}
+#timeline.timeline-left .timeline-date {
+  left:0;
+  margin-left:-100px;
+  width:auto;
+  text-align: right;
+}
