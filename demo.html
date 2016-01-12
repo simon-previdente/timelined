@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="reset.css">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/timeline.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	<title>Timelined</title>
 	<style>
@@ -13,10 +14,19 @@
 			font-size:1em;
 		}
 		.full-width {
+			max-width:1200px;
+			margin:0 auto;
 			background-color:#CFCFC4;
+			border-left:1px solid #85857e;
+			border-right:1px solid #85857e;
+			border-top:1px solid #85857e;
+		}
+		.logo {
+			width:40px;
+			vertical-align:middle;
 		}
 		.container {
-			max-width: 900px;
+			max-width:1200px;
 			margin:0 auto;
 		}
 		h1,h2,h3 {
@@ -28,10 +38,14 @@
 		}
 		h2 {
 			padding:10px;
-			font-size:140%;
+			font-size:110%;
 		}
 		p {
 			padding-left:10px;
+			font-size:90%;
+		}
+		li {
+			font-size:80%;
 		}
 		.center {
 			text-align: center;
@@ -41,12 +55,24 @@
 
 <body>
 	<div class="full-width">
-		<h1 class="center">Timelined</h1>
+		<h1 class="center"><img class="logo" src="logo.png"/> <b>Timelined</b></h1>
 	</div>
 	<div class="container">
-		<div class="timeline timeline-collapsing timeline-alternating gray-red">
+		<div class="timeline timeline-collapsing timeline-alternating timeline-with-arrows blue-red-red">
 			<div class="timeline-block">
-				<div class="timeline-icon"></div>
+				<div class="timeline-icon timeline-icon-hide-border"><i style="color:#c23b22" class="fa fa-bell-o fa-lg"></i></div>
+				<div class="timeline-content">
+					<h2>0.2.1 released</h2>
+					<ul>
+						<li>Added arrow support (<code>.timeline-with-arrows</code>)</li>
+						<li>Icons and images supported as timeline icons</li>
+						<li>Fixes to positioning</li>
+					</ul>
+					<div class="timeline-date">2015-01-12</div>
+				</div>
+			</div>
+			<div class="timeline-block">
+				<div class="timeline-icon timeline-icon-hide-border"><i style="color:#c23b22" class="fa fa-github fa-lg"></i></div>
 				<div class="timeline-content">
 					<p>Pushed up to <a href="https://github.com/andriussev/timelined">GitHub</a>.</p>
 					<div class="timeline-date">2015-01-11</div>
@@ -99,6 +125,36 @@
 			</div>
 			<div class="timeline-block">
 				<div class="timeline-icon"></div>
+				<div class="timeline-content">
+					<h2>The start</h2>
+					<p>From idea to execution.</p>
+					<div class="timeline-date">2015-01-10</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="full-width">
+		<h3 class="center">Arrows, icons, images</h3>
+	</div>
+	<div class="container">
+		<div class="timeline timeline-alternating timeline-with-arrows blue-blue-blue">
+			<div class="timeline-block">
+				<div class="timeline-icon timeline-icon-hide-border"><i class="fa fa-github fa-lg"></i></div>
+				<div class="timeline-content">
+					<p>Pushed up to <a href="https://github.com/andriussev/timelined">GitHub</a>.</p>
+					<div class="timeline-date">2015-01-11</div>
+				</div>
+			</div>
+			<div class="timeline-block">
+				<div class="timeline-icon"></div>
+				<div class="timeline-content">
+					<h2>The start</h2>
+					<p>From idea to execution.</p>
+					<div class="timeline-date">2015-01-10</div>
+				</div>
+			</div>
+			<div class="timeline-block">
+				<div class="timeline-icon"><img src="http://lorempixel.com/100/100/"/></div>
 				<div class="timeline-content">
 					<h2>The start</h2>
 					<p>From idea to execution.</p>

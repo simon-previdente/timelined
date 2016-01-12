@@ -1,5 +1,11 @@
-*, *::after, *::before {
+.timeline {
   box-sizing: border-box; }
+  .timeline::before {
+    box-sizing: border-box; }
+  .timeline * {
+    box-sizing: border-box; }
+    .timeline *::before {
+      box-sizing: border-box; }
 
 /* Main logic */
 .timeline {
@@ -14,18 +20,37 @@
     margin: 40px 0; }
   .timeline .timeline-icon {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
     left: 50%;
-    margin-left: -10px;
-    border: 2px solid #FF6961;
+    margin-left: -16px;
+    margin-top: -2px;
+    border: 4px solid #FF6961;
     border-radius: 100%;
-    background-color: white; }
+    background-color: white;
+    text-align: center; }
+    .timeline .timeline-icon.timeline-icon-hide-border {
+      border: 0; }
+      .timeline .timeline-icon.timeline-icon-hide-border i.fa, .timeline .timeline-icon.timeline-icon-hide-border img {
+        margin-left: 0;
+        margin-top: 0; }
+    .timeline .timeline-icon i.fa, .timeline .timeline-icon img {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin-left: -4px;
+      margin-top: -4px;
+      vertical-align: bottom;
+      line-height: 32px;
+      text-align: center;
+      font-size: 30px; }
+    .timeline .timeline-icon img {
+      border-radius: 100%; }
   .timeline .timeline-content {
     position: relative;
     width: 45%;
     padding: 12px;
-    border: 1px solid #CFCFC4;
+    border: 1px solid #e5e5e5;
     line-height: 20px; }
   .timeline .timeline-date {
     position: absolute;
@@ -45,9 +70,6 @@
   background-color: #CFCFC4;
   content: ""; }
 
-.timeline.rounded .timeline-content {
-  border-radius: 4px; }
-
 @media screen and (min-width: 800px) {
   .timeline.timeline-alternating:not(.timeline-left) .timeline-block:nth-of-type(2n) .timeline-content {
     left: 55%; }
@@ -61,17 +83,17 @@
     left: auto;
     margin-left: 140px; }
   .timeline.timeline-collapsing .timeline-block {
-    margin-left: 160px;
+    margin-left: 174px;
     margin-right: 10px; }
   .timeline.timeline-collapsing .timeline-icon {
     left: auto;
-    margin-left: -29px; }
+    margin-left: -49px; }
   .timeline.timeline-collapsing .timeline-content {
     width: auto; }
   .timeline.timeline-collapsing .timeline-date {
     width: auto;
     left: 0;
-    margin-left: -120px;
+    margin-left: -130px;
     text-align: right; } }
 
 /* Left based logic */
@@ -80,12 +102,12 @@
   margin-left: 140px; }
 
 .timeline.timeline-left .timeline-block {
-  margin-left: 160px;
+  margin-left: 174px;
   margin-right: 10px; }
 
 .timeline.timeline-left .timeline-icon {
   left: auto;
-  margin-left: -29px; }
+  margin-left: -49px; }
 
 .timeline.timeline-left .timeline-content {
   width: auto; }
@@ -93,7 +115,7 @@
 .timeline.timeline-left .timeline-date {
   width: auto;
   left: 0;
-  margin-left: -120px;
+  margin-left: -130px;
   text-align: right; }
 
 /* Color schemes */
@@ -105,7 +127,19 @@
   border-color: #C23B22; }
 
 .timeline.gray-red .timeline-content {
-  border-color: #CFCFC4; }
+  border-color: #e5e5e5; }
+
+.timeline.gray-red.timeline-with-arrows .timeline-content::before {
+  border-left-color: #e5e5e5; }
+
+.timeline.gray-red.timeline-with-arrows.timeline-left .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.gray-red.timeline-with-arrows.timeline-alternating .timeline-block:nth-of-type(2n) .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.gray-red.timeline-with-arrows.timeline-alternating .timeline-content::before {
+  border-right-color: #e5e5e5; }
 
 .timeline.gray-blue::before {
   background-color: #CFCFC4; }
@@ -114,16 +148,61 @@
   border-color: #779ECB; }
 
 .timeline.gray-blue .timeline-content {
-  border-color: #CFCFC4; }
+  border-color: #e5e5e5; }
 
-.timeline.blue-yellow::before {
+.timeline.gray-blue.timeline-with-arrows .timeline-content::before {
+  border-left-color: #e5e5e5; }
+
+.timeline.gray-blue.timeline-with-arrows.timeline-left .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.gray-blue.timeline-with-arrows.timeline-alternating .timeline-block:nth-of-type(2n) .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.gray-blue.timeline-with-arrows.timeline-alternating .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.blue-yellow-yellow::before {
   background-color: #AEC6CF; }
 
-.timeline.blue-yellow .timeline-icon {
+.timeline.blue-yellow-yellow .timeline-icon {
   border-color: #FFB347; }
 
-.timeline.blue-yellow .timeline-content {
+.timeline.blue-yellow-yellow .timeline-content {
   border-color: #AEC6CF; }
+
+.timeline.blue-yellow-yellow.timeline-with-arrows .timeline-content::before {
+  border-left-color: #AEC6CF; }
+
+.timeline.blue-yellow-yellow.timeline-with-arrows.timeline-left .timeline-content::before {
+  border-right-color: #AEC6CF; }
+
+.timeline.blue-yellow-yellow.timeline-with-arrows.timeline-alternating .timeline-block:nth-of-type(2n) .timeline-content::before {
+  border-right-color: #AEC6CF; }
+
+.timeline.blue-yellow-yellow.timeline-with-arrows.timeline-alternating .timeline-content::before {
+  border-right-color: #AEC6CF; }
+
+.timeline.blue-red-red::before {
+  background-color: #779ECB; }
+
+.timeline.blue-red-red .timeline-icon {
+  border-color: #C23B22; }
+
+.timeline.blue-red-red .timeline-content {
+  border-color: #C23B22; }
+
+.timeline.blue-red-red.timeline-with-arrows .timeline-content::before {
+  border-left-color: #C23B22; }
+
+.timeline.blue-red-red.timeline-with-arrows.timeline-left .timeline-content::before {
+  border-right-color: #C23B22; }
+
+.timeline.blue-red-red.timeline-with-arrows.timeline-alternating .timeline-block:nth-of-type(2n) .timeline-content::before {
+  border-right-color: #C23B22; }
+
+.timeline.blue-red-red.timeline-with-arrows.timeline-alternating .timeline-content::before {
+  border-right-color: #C23B22; }
 
 .timeline.purple-flirt::before {
   background-color: #B19CD9; }
@@ -132,4 +211,70 @@
   border-color: #A2006D; }
 
 .timeline.purple-flirt .timeline-content {
-  border-color: #B19CD9; }
+  border-color: #e5e5e5; }
+
+.timeline.purple-flirt.timeline-with-arrows .timeline-content::before {
+  border-left-color: #e5e5e5; }
+
+.timeline.purple-flirt.timeline-with-arrows.timeline-left .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.purple-flirt.timeline-with-arrows.timeline-alternating .timeline-block:nth-of-type(2n) .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.purple-flirt.timeline-with-arrows.timeline-alternating .timeline-content::before {
+  border-right-color: #e5e5e5; }
+
+.timeline.blue-blue-blue::before {
+  background-color: #AEC6CF; }
+
+.timeline.blue-blue-blue .timeline-icon {
+  border-color: #AEC6CF; }
+
+.timeline.blue-blue-blue .timeline-content {
+  border-color: #AEC6CF; }
+
+.timeline.blue-blue-blue.timeline-with-arrows .timeline-content::before {
+  border-left-color: #AEC6CF; }
+
+.timeline.blue-blue-blue.timeline-with-arrows.timeline-left .timeline-content::before {
+  border-right-color: #AEC6CF; }
+
+.timeline.blue-blue-blue.timeline-with-arrows.timeline-alternating .timeline-block:nth-of-type(2n) .timeline-content::before {
+  border-right-color: #AEC6CF; }
+
+.timeline.blue-blue-blue.timeline-with-arrows.timeline-alternating .timeline-content::before {
+  border-right-color: #AEC6CF; }
+
+/* Arrows */
+.timeline.timeline-with-arrows .timeline-content::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 14px solid #e5e5e5;
+  margin-right: -15px;
+  margin-top: -1px;
+  content: ""; }
+
+.timeline.timeline-with-arrows.timeline-left .timeline-content::before {
+  left: 0;
+  border-left: 0;
+  border-right: 14px solid #e5e5e5;
+  margin-left: -15px; }
+
+.timeline.timeline-with-arrows.timeline-alternating .timeline-block:nth-of-type(2n) .timeline-content::before {
+  left: 0;
+  border-left: 0;
+  border-right: 14px solid #e5e5e5;
+  margin-left: -15px; }
+
+@media screen and (max-width: 800px) {
+  .timeline.timeline-with-arrows .timeline-content::before {
+    left: 0;
+    border-left: 0;
+    border-right: 14px solid #e5e5e5;
+    margin-left: -15px; } }

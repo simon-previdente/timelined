@@ -1,11 +1,13 @@
 /* Schemes */
 
 $schemes: (
-  gray-red: (primary-color:#C23B22,secondary-color:#CFCFC4),
-  gray-blue: (primary-color:#779ECB,secondary-color:#CFCFC4),
-  blue-yellow:(primary-color:#FFB347,secondary-color:#AEC6CF),
-  purple-flirt:(primary-color:#A2006D,secondary-color:#B19CD9),
-);
+  gray-red: (primary-color:#C23B22,secondary-color:#CFCFC4,box-color:#e5e5e5),
+  gray-blue: (primary-color:#779ECB,secondary-color:#CFCFC4,box-color:#e5e5e5),
+  blue-yellow-yellow:(primary-color:#FFB347,secondary-color:#AEC6CF,box-color:#AEC6CF),
+  blue-red-red:(primary-color:#C23B22,secondary-color:#779ECB,box-color:#C23B22),
+  purple-flirt:(primary-color:#A2006D,secondary-color:#B19CD9,box-color:#e5e5e5),
+  blue-blue-blue:(primary-color:#AEC6CF,secondary-color:#AEC6CF,box-color:#AEC6CF),
+  );
 
 @each $scheme, $map in $schemes {
   .timeline.#{$scheme}::before {
@@ -15,6 +17,24 @@ $schemes: (
     border-color:map-get($map,primary-color);
   }
   .timeline.#{$scheme} .timeline-content {
-    border-color:map-get($map,secondary-color);
+    border-color:map-get($map,box-color);
+  }
+  .timeline.#{$scheme}.timeline-with-arrows {
+    .timeline-content::before {
+      border-left-color:map-get($map,box-color);
+    }
+    &.timeline-left {
+      .timeline-content::before {
+        border-right-color:map-get($map,box-color);
+      }
+    }
+    &.timeline-alternating {
+      .timeline-block:nth-of-type(2n) .timeline-content::before {
+        border-right-color:map-get($map,box-color);
+      }
+      .timeline-content::before {
+        border-right-color:map-get($map,box-color);
+      }
+    }
   }
 }

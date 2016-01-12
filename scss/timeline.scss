@@ -1,34 +1,46 @@
 $font-size: 1em;
 $primary-color: #FF6961;
 $secondary-color: #CFCFC4;
+$box-color:#e5e5e5;
 $timeline-width: 2px;
-$icon-size: 20px;
-$box-round: 4px;
+$icon-size: 32px;
+$icon-border-width: 4px;
 $block-spacing: 40px;
 $width-small: 800px;
+$arrow-size: 14px;
+$fa-size: 30px;
 
 @mixin collapsed() {
-		.timeline-block {
-			margin-left:160px;
-			margin-right:10px;
-		}
-		.timeline-icon {
-			left:auto;
-			margin-left:-29px;
-		}
-		.timeline-content {
-			width:auto;
-		}
-		.timeline-date {
-			width:auto;
-			left:0;
-			margin-left:-120px;
-			text-align: right;
-		}
+	.timeline-block {
+		margin-left:140px + $timeline-width + $icon-size;
+		margin-right:10px;
+	}
+	.timeline-icon {
+		left:auto;
+		margin-left:-$icon-size -$icon-size/2 - $timeline-width/2;
+	}
+	.timeline-content {
+		width:auto;
+	}
+	.timeline-date {
+		width:auto;
+		left:0;
+		margin-left:-80px - $timeline-width - 3/2*$icon-size;
+		text-align: right;
+	}
 }
 
-*, *::after, *::before {
+.timeline {
 	box-sizing: border-box;
+	&::before {
+		box-sizing: border-box;
+	}
+	* {
+		box-sizing: border-box;
+		&::before {
+			box-sizing: border-box;
+		}
+	}
 }
 
 /* Main logic */
@@ -36,7 +48,7 @@ $width-small: 800px;
 	position:relative;
 	font-size:$font-size;
 	width:100%;
-  	height:100%;
+	height:100%;
 	margin:0 auto;
 	overflow-y:hidden;
 	margin-top:0;
@@ -50,15 +62,41 @@ $width-small: 800px;
 		height:$icon-size;
 		left:50%;
 		margin-left:-$icon-size/2;
-		border:2px solid $primary-color;
+		margin-top:-$icon-size/2 + $arrow-size;
+		border:$icon-border-width solid $primary-color;
 		border-radius:100%;
 		background-color: white;
+		text-align: center;
+
+		&.timeline-icon-hide-border {
+			border:0;
+			i.fa,img {
+				margin-left:0;
+				margin-top:0;
+			}
+		}
+
+		i.fa,img {
+			display:inline-block;
+			width: $icon-size;
+			height: $icon-size;
+			margin-left:-$icon-border-width;
+			margin-top:-$icon-border-width;
+			vertical-align: bottom;
+			line-height: $icon-size;
+			text-align: center;
+			font-size: $fa-size;
+		}
+		img {
+			border-radius:100%;
+
+		}
 	}
 	.timeline-content {
 		position:relative;
 		width:45%;
 		padding:12px;
-		border:1px solid $secondary-color;
+		border:1px solid $box-color;
 		line-height: 20px;
 	}
 	.timeline-date {
@@ -78,10 +116,6 @@ $width-small: 800px;
 	margin-left:-$timeline-width/2; /* Half of width */
 	background-color:$secondary-color;
 	content:"";
-}
-
-.timeline.rounded .timeline-content {
-	border-radius:$box-round;
 }
 
 @media screen and (min-width:$width-small) {
@@ -109,12 +143,10 @@ $width-small: 800px;
 }
 
 
-
-
 /* Left based logic */
 .timeline.timeline-left::before {
-  left:auto;
-  margin-left:140px;
+	left:auto;
+	margin-left:140px;
 }
 .timeline.timeline-left {
 	@include collapsed();
@@ -122,3 +154,43 @@ $width-small: 800px;
 
 /* Color schemes */
 @import 'color_schemes';
+
+/* Arrows */
+@mixin force-arrow-left() {
+	left:0;
+	border-left:0;
+	border-right: $arrow-size solid $box-color;
+	margin-left:-$arrow-size - 1px;
+}
+
+.timeline.timeline-with-arrows {
+	.timeline-content::before {
+		position:absolute;
+		top:0;
+		right:0;
+		width: 0; 
+		height: 0;
+		border-top: $arrow-size solid transparent;
+		border-bottom: $arrow-size solid transparent;
+		border-left: $arrow-size solid $box-color;
+		margin-right:-$arrow-size - 1px;
+		margin-top:-1px;
+		content:"";
+	}
+	&.timeline-left {
+		.timeline-content::before {
+			@include force-arrow-left();
+		}
+	}
+
+	&.timeline-alternating {
+		.timeline-block:nth-of-type(2n) .timeline-content::before {
+			@include force-arrow-left();
+		}
+	}
+	@media screen and (max-width:$width-small) {
+		.timeline-content::before {
+			@include force-arrow-left();
+		}
+	}
+}
