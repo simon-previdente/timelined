@@ -46,6 +46,20 @@ As of now, Font Awesome icons can be used, as well as images:
 	<div class="timeline-icon">
 		<img src="http://lorempixel.com/100/100/"/>
 	</div>
+#### Hide timeline content - timeline icon only
+If you don't want to show the timeline content in the block, add `.timeline-block-icon-only` class on `timeline-block`. This makes the `.timeline-content` invisible.
+
+Furthermore, if you want to enter text instead of an icon (or an image), add `.timeline-icon-text` to `.timeline-icon` div. You might want to also use `.timeline-icon-hide-border` in addition.
+Adding the text content to a `span` container will give it the default background and border.
+
+Basic example of how everything would work:
+
+	<div class="timeline-block timeline-block-icon-only">
+		<div class="timeline-icon timeline-icon-text timeline-icon-hide-border">
+			<span>This is my important text</span>
+		</div>
+		<div class="timeline-content"></div>
+	</div>
 
 
 
@@ -66,5 +80,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
