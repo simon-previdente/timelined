@@ -1,7 +1,8 @@
 $font-size: 1em;
 $primary-color: #FF6961;
 $secondary-color: #CFCFC4;
-$box-color:#e5e5e5;
+$box-border-color:#e5e5e5;
+$box-background-color:#EEE;
 $timeline-width: 2px;
 $icon-size: 32px;
 $icon-border-width: 4px;
@@ -96,7 +97,8 @@ $fa-size: 30px;
 		position:relative;
 		width:45%;
 		padding:12px;
-		border:1px solid $box-color;
+		background-color:$box-background-color;
+		border:1px solid $box-border-color;
 		line-height: 20px;
 	}
 	.timeline-date {
@@ -157,40 +159,89 @@ $fa-size: 30px;
 
 /* Arrows */
 @mixin force-arrow-left() {
-	left:0;
-	border-left:0;
-	border-right: $arrow-size solid $box-color;
-	margin-left:-$arrow-size - 1px;
-}
-
-.timeline.timeline-with-arrows {
-	.timeline-content::before {
-		position:absolute;
-		top:0;
-		right:0;
-		width: 0; 
-		height: 0;
-		border-top: $arrow-size solid transparent;
-		border-bottom: $arrow-size solid transparent;
-		border-left: $arrow-size solid $box-color;
-		margin-right:-$arrow-size - 1px;
-		margin-top:-1px;
-		content:"";
+	&::after, &::before {
+		left:0;
+		right:100%;
+		border-color: rgba(0, 0, 0, 0);
 	}
+	&::after {
+		border-right-color: $box-background-color;
+		margin-left:-$arrow-size*2;
+	}
+	&::before {
+		border-right-color: $box-border-color;
+		margin-top: -1px;
+		margin-left:-$arrow-size*2 - 3px;
+	}
+	
+}
+.timeline.timeline-with-arrows {
+	.timeline-content {
+		&::after, &::before {
+			left: 100%;
+			top: 0;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(0, 0, 0, 0);
+		}
+	
+		&::after {
+			border-left-color: $box-background-color;
+			border-width: $arrow-size;
+			margin-left:0;
+			margin-top: 0;
+		}
+		&::before {
+			border-left-color: $box-border-color;
+			border-width: $arrow-size + 1px;
+			margin-left:1px;
+			margin-top: -1px;
+		}
+	}
+	
 	&.timeline-left {
-		.timeline-content::before {
+		.timeline-content {
 			@include force-arrow-left();
 		}
 	}
-
 	&.timeline-alternating {
-		.timeline-block:nth-of-type(2n) .timeline-content::before {
+		.timeline-block:nth-of-type(2n) .timeline-content {
 			@include force-arrow-left();
 		}
 	}
 	@media screen and (max-width:$width-small) {
-		.timeline-content::before {
+		.timeline-content {
 			@include force-arrow-left();
 		}
+	}
+}
+
+/* Icon only */
+.timeline-icon.timeline-icon-text {
+	left:0;
+	width:100%;
+	margin:0;
+	text-align:center;
+	height:40px;
+	line-height:40px;
+	border-radius:0;
+	background-color:transparent;
+	
+	span {
+		display:inline-block;
+		width:auto;
+		background-color:$box-background-color;
+		border:1px solid $box-border-color;
+		padding:0 10px;
+		// border-radius:10px;
+	}
+}
+.timeline-block.timeline-block-icon-only  {
+	.timeline-content {
+		visibility:hidden;
 	}
 }
