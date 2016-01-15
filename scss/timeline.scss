@@ -162,7 +162,7 @@ $fa-size: 30px;
 	&::after, &::before {
 		left:0;
 		right:100%;
-		border-color: rgba(0, 0, 0, 0);
+		border-left-color: rgba(0, 0, 0, 0) !important;
 	}
 	&::after {
 		border-right-color: $box-background-color;
@@ -173,7 +173,6 @@ $fa-size: 30px;
 		margin-top: -1px;
 		margin-left:-$arrow-size*2 - 3px;
 	}
-	
 }
 .timeline.timeline-with-arrows {
 	.timeline-content {

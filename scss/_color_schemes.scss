@@ -40,7 +40,13 @@ $schemes: (
       .timeline-block:nth-of-type(2n) .timeline-content::before {
         border-right-color:map-get($map,box-border-color);
       }
-
+    }
+    &.timeline-collapsing {
+      @media screen and (max-width:$width-small) {
+        .timeline-content::before {
+          border-right-color:map-get($map,box-border-color);
+        }
+      }
     }
   }
 }
