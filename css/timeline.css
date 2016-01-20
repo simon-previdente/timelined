@@ -371,5 +371,10 @@
       width: auto;
       margin-left: 0 !important; } }
 
+.timeline.timeline-left .timeline-icon.timeline-icon-text {
+  left: auto;
+  width: auto;
+  margin-left: 0 !important; }
+
 .timeline-block.timeline-block-icon-only .timeline-content {
   visibility: hidden; }

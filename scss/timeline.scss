@@ -221,6 +221,11 @@ $fa-size: 30px;
 }
 
 /* Icon only */
+@mixin collapsed-icon() {
+	left:auto;
+	width:auto;
+	margin-left:0 !important;
+}
 .timeline-icon.timeline-icon-text {
 	left:0;
 	width:100%;
@@ -241,9 +246,13 @@ $fa-size: 30px;
 	}
 	
 	@media screen and (max-width:$width-small) {
-		left:auto;
-		width:auto;
-		margin-left:0 !important;
+		@include collapsed-icon();
+	}
+}
+
+.timeline.timeline-left {
+	.timeline-icon.timeline-icon-text {
+		@include collapsed-icon();
 	}
 }
 
