@@ -100,6 +100,7 @@ $fa-size: 30px;
 		background-color:$box-background-color;
 		border:1px solid $box-border-color;
 		line-height: 20px;
+		min-height:64px;
 	}
 	.timeline-date {
 		position: absolute;
@@ -238,7 +239,14 @@ $fa-size: 30px;
 		padding:0 10px;
 		// border-radius:10px;
 	}
+	
+	@media screen and (max-width:$width-small) {
+		left:auto;
+		width:auto;
+		margin-left:0 !important;
+	}
 }
+
 .timeline-block.timeline-block-icon-only  {
 	.timeline-content {
 		visibility:hidden;

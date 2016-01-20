@@ -52,7 +52,8 @@
     padding: 12px;
     background-color: #EEE;
     border: 1px solid #e5e5e5;
-    line-height: 20px; }
+    line-height: 20px;
+    min-height: 64px; }
   .timeline .timeline-date {
     position: absolute;
     width: auto;
@@ -364,6 +365,11 @@
     background-color: #EEE;
     border: 1px solid #e5e5e5;
     padding: 0 10px; }
+  @media screen and (max-width: 800px) {
+    .timeline-icon.timeline-icon-text {
+      left: auto;
+      width: auto;
+      margin-left: 0 !important; } }
 
 .timeline-block.timeline-block-icon-only .timeline-content {
   visibility: hidden; }
