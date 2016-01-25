@@ -7,7 +7,7 @@ Timelined is a customizable CSS-only vertical timeline.
 ## Quick start
 
 ### Grab the compiled code
-The compiled SCSS code is the `css` directory, which will work fully work without the need of compiling anything. Don't forget to grab the `demo.html` file too, to get the idea of how the tool works.
+The [compiled SCSS code](https://github.com/andriussev/timelined/raw/master/css/timeline.min.css) is the `css` directory, which will work fully work without the need of compiling anything. Don't forget to grab the [`demo.html` file](https://github.com/andriussev/timelined/raw/master/demo.html) too, to get the idea of how the tool works.
 
 ### Compiling
 The styling is done with SCSS and you can compile it with any proper tool (I use [node-sass](https://github.com/sass/node-sass)). There are a couple of variables and other stuff to make the customization faster.
